@@ -1,0 +1,57 @@
+.sky-cloud { animation: cloud-drift 23s ease-in-out var(--delay,0s) infinite alternate; }
+.sky-spark { animation: twinkle 5.5s ease-in-out var(--delay,0s) infinite alternate; }
+.water-shimmer { animation: glint 3.7s ease-in-out infinite alternate; }
+.steam { animation: steam 5.4s ease-in-out var(--delay,0s) infinite; }
+.gear { animation: gear 18s linear infinite; transform-box: fill-box; transform-origin: center; }
+.dog-tail { animation: wag 1.4s ease-in-out infinite alternate; transform-origin: -22px -22px; }
+.pin-current .pin-pulse { animation: pulse 2.1s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+.map-enter .map-art { animation: map-enter .95s cubic-bezier(.2,.72,.27,1) both; }
+.map-enter .traveler-figure { animation: arrive .84s ease-out both; }
+.is-walking .leg-left, .map-enter .leg-left { animation: walking .34s ease-in-out infinite alternate; transform-box: fill-box; transform-origin: center top; }
+.is-walking .leg-right, .map-enter .leg-right { animation: walking .34s -.17s ease-in-out infinite alternate; transform-box: fill-box; transform-origin: center top; }
+.map-enter .leg { animation-iteration-count: 3; }
+.route-segment.is-lit .new-road { animation: road-light 1.18s ease-out both; }
+.reflection-revealed, .idea-sketch, .reframed { animation: reveal .46s ease-out both; }
+.case-closed .suitcase-lid { animation: reveal .43s ease-out both; }
+.stone-new { animation: stone .57s ease-out both; }
+.bridge-finish { animation: bridge-walk 1s ease-in-out both; }
+.bridge-finish .leg { animation: walking .3s ease-in-out alternate 4; transform-box: fill-box; transform-origin: center top; }
+.bridge-finish .leg-right { animation-delay: -.15s; }
+.stamp-toast { animation: toast .37s ease-out both; }
+.stamp-toast .stamp-art { animation: stamp .49s .08s cubic-bezier(.18,.78,.25,1.2) both; }
+.orb-shot { animation: hoop-shot .92s ease-out both; }
+.final-pan { animation: final-pan 5.1s cubic-bezier(.18,.65,.3,1) both; }
+.final-world .dawn-light { animation: dawning 2.7s .13s ease-out both; }
+.final-title h1 > span { animation: reveal .62s .16s ease-out both; }
+.final-title h1 > em { animation: reveal .74s .92s ease-out both; }
+.final-promise > span { animation: reveal .62s 1.67s ease-out both; }
+.final-promise > strong { animation: reveal .62s 2.18s ease-out both; }
+
+@keyframes cloud-drift { from { transform: translateX(-10px); } to { transform: translateX(25px); } }
+@keyframes twinkle { from { opacity: .2; } to { opacity: .85; } }
+@keyframes glint { from { opacity: .38; } to { opacity: .94; } }
+@keyframes steam { 0% { opacity: .21; transform: translate(0,3px); } 57% { opacity: .9; } 100% { opacity: .13; transform: translate(8px,-11px); } }
+@keyframes gear { to { transform: rotate(360deg); } }
+@keyframes wag { 0%, 45% { transform: rotate(-10deg); } 63%,100% { transform: rotate(11deg); } }
+@keyframes pulse { 0%,100% { opacity: .27; transform: scale(.88); } 50% { opacity: .55; transform: scale(1.48); } }
+@keyframes map-enter { from { transform: scale(1.09); opacity: .62; } to { transform: scale(1); opacity: 1; } }
+@keyframes arrive { from { transform: translateX(-101px); opacity: .55; } to { transform: translateX(0); opacity: 1; } }
+@keyframes walking { from { transform: rotate(-10deg); } to { transform: rotate(10deg); } }
+@keyframes road-light { from { stroke-dashoffset: 100; opacity: .34; } to { stroke-dashoffset: 0; opacity: .95; } }
+@keyframes reveal { from { opacity: 0; transform: translateY(9px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes stone { from { opacity: .5; } to { opacity: 1; } }
+@keyframes bridge-walk { from { transform: translateX(-104px); } to { transform: translateX(0); } }
+@keyframes toast { from { opacity: 0; transform: translateY(13px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes stamp { from { opacity: 0; transform: scale(1.55) rotate(-19deg); } to { opacity: 1; transform: scale(1) rotate(-8deg); } }
+@keyframes hoop-shot {
+  0% { transform: translate(0,0); }
+  48% { transform: translate(141px,-134px); }
+  75% { transform: translate(274px,-78px); }
+  90%,100% { transform: translate(276px,8px); }
+}
+@keyframes final-pan { from { transform: translate(1.1%,2.1%) scale(1.12); } to { transform: none; } }
+@keyframes dawning { from { opacity: 0; } to { opacity: 1; } }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-delay: 0s !important; animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; scroll-behavior: auto !important; }
+}
